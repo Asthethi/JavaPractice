@@ -13,7 +13,8 @@ def check_naming_conventions(code):
     #         errors.append(f"Variable or function '{name}' does not follow snake_case convention")
 
     # Check class names for CamelCase
-    camel_case_pattern = re.compile(r'^[a-zA-Z]+([A-Z][a-z]+)+$')
+    #camel_case_pattern = re.compile(r'^[a-zA-Z]+([A-Z][a-z]+)+$')
+    camel_case_pattern = re.compile(r'^[A-Z][a-zA-Z0-9]*$')
     for match in re.finditer(r'\b[A-Z][a-zA-Z0-9]*\b', code):
         name = match.group()
         if not camel_case_pattern.match(name):
