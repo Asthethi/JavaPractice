@@ -1,0 +1,35 @@
+# .github/workflows/code_review.yml
+
+name: Code Review
+
+on:
+  push:
+    branches:
+      - dev-test
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code_review:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'  # Specify the Python version you need
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Install any dependencies your script needs
+        # For example, if you have a requirements.txt file:
+        # pip install -r requirements.txt
+
+    - name: Run code review script
+      run: |
+        python review_script.py
