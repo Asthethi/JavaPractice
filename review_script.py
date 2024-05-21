@@ -1,6 +1,7 @@
 import re
 import os
 import sys
+import subprocess
 
 def check_naming_conventions(code):
     errors = []
@@ -24,9 +25,11 @@ def main():
     for java_file in java_files:
         with open(java_file, 'r') as file:
             code = file.read()
+            subprocess.run(["pylint", java_file])
 
         # Analyze code for naming conventions
-        check_naming_conventions(code)
+        #check_naming_conventions(code)
+
 
 if __name__ == "__main__":
     main()
