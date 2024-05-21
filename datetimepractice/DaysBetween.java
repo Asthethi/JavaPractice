@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.time.Year;
 import java.util.HashMap;
 
-public class daysBetween {
+public class DaysBetween {
 	private static HashMap<Integer, Integer> monthsMap = new HashMap<>();
 
 	public static void main(String[] args) throws ParseException {
