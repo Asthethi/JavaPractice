@@ -22,10 +22,10 @@ public class DaysBetween {
 		monthsMap.put(10, 31);
 		monthsMap.put(11, 30);
 		monthsMap.put(12, 31);
-		System.out.println(findDays(01, 01, 2001, 31, 12, 2005));
+		System.out.println(FindDays(01, 01, 2001, 31, 12, 2005));
 	}
 
-	private static int findDays(int day_date1, int month_date1, int year_date1, int day_date2, int month_date2,
+	private static int FindDays(int day_date1, int month_date1, int year_date1, int day_date2, int month_date2,
 			int year_date2) throws ParseException {
 		/// logic to calculate number of days between given two dates
 
