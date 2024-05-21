@@ -25,7 +25,7 @@ def main():
     for java_file in java_files:
         with open(java_file, 'r') as file:
             code = file.read()
-            #subprocess.run(["pylint", java_file])
+            subprocess.run(["pylint", java_file])
             print(java_file)
 
         # Analyze code for naming conventions
