@@ -2,7 +2,7 @@ public class Test {
 
     int Amrit = 1;
 
-    public TestO() {
+    public Test() {
     }
 
     public static void main() {
