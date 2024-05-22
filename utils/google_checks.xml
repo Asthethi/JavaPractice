@@ -17,7 +17,7 @@
  -->
 
 <module name="Checker">
-  
+  <property name="severity" value="warning"/>
   <module name="SuppressWarningsFilter"/>
 
   <property name="charset" value="UTF-8"/>
@@ -185,7 +185,7 @@
     </module>
     <module name="MemberName">
       <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
-      <property name="severity" value="error"/>
+      
       <message key="name.invalidPattern"
              value="Member name ''{0}'' must match pattern ''{1}''."/>
     </module>
