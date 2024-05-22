@@ -21,13 +21,23 @@ def find_java_files(directory):
 def main():
     # Find all Java files in the repository
     java_files = find_java_files('.')
+    checkstyle_jar = 'utils/checkstyle-10.16.0-all.jar'  # Use the consistent JAR file name
+    config_file = '.github/google_checks.xml'
 
     for java_file in java_files:
         with open(java_file, 'r') as file:
             code = file.read()
-            subprocess.run(["pylint", java_file])
-            print(java_file)
+            #subprocess.run(["pylint", java_file])
+            #print(java_file)
 
+    cmd = ['java','-jar', checkstyle_jar, '-c', config_file] + java_files
+    result = subprocess.run(cmd,capture_output=True, text=True)
+
+    if result.returncode == 0:
+        print("Checkstyle passed with no violations.")
+    else:
+        print("Checkstyle violations found:")
+        print(result.stdout)
         # Analyze code for naming conventions
         #check_naming_conventions(code)
 
