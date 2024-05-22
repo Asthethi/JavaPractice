@@ -17,7 +17,7 @@
  -->
 
 <module name="Checker">
-  
+  <property name="severity" value="error"/>
   <module name="SuppressWarningsFilter"/>
 
   <property name="charset" value="UTF-8"/>
@@ -206,7 +206,6 @@
              value="Catch parameter name ''{0}'' must match pattern ''{1}''."/>
     </module>
     <module name="LocalVariableName">
-      <property name="severity" value="error"/>
       <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
       <message key="name.invalidPattern"
              value="Local variable name ''{0}'' must match pattern ''{1}''."/>
