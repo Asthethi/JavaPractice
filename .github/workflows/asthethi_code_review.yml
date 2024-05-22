@@ -14,6 +14,9 @@ jobs:
   code_review:
     runs-on: ubuntu-latest
 
+    env:
+      CHECKSTYLE_VERSION: '10.16.0'
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -30,6 +33,11 @@ jobs:
         # Install any dependencies your script needs
         # For example, if you have a requirements.txt file:
         # pip install -r requirements.txt
+
+    - name: Download Checkstyle
+      run: |
+        wget -q -O checkstyle-${{ env.CHECKSTYLE_VERSION }}-all.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${{ env.CHECKSTYLE_VERSION }}/checkstyle-${{ env.CHECKSTYLE_VERSION }}-all.jar
+        ls -l checkstyle-${{ env.CHECKSTYLE_VERSION }}-all.jar
 
     - name: Run code review script
       run: |
