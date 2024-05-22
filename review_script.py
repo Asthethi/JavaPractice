@@ -22,7 +22,7 @@ def main():
     # Find all Java files in the repository
     java_files = find_java_files('.')
     checkstyle_jar = 'utils/checkstyle-10.16.0-all.jar'  # Use the consistent JAR file name
-    config_file = '.github/google_checks.xml'
+    config_file = 'utils/google_checks.xml'
 
     for java_file in java_files:
         with open(java_file, 'r') as file:
