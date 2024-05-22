@@ -35,7 +35,7 @@ def main():
 
     if result.returncode == 0:
         print("Checkstyle passed with no violations.")
-        print(result)
+        print(result.stdout)
     else:
         print("Checkstyle violations found:")
         print(result.stderr)
