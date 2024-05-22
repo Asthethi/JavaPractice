@@ -17,7 +17,7 @@
  -->
 
 <module name="Checker">
-  <property name="SeverityLevel" value="error"/>
+  <property name="severity" value="ERROR"/>
   <module name="SuppressWarningsFilter"/>
 
   <property name="charset" value="UTF-8"/>
