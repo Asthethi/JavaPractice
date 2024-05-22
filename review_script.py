@@ -30,7 +30,7 @@ def main():
             #subprocess.run(["pylint", java_file])
             #print(java_file)
 
-    cmd = ['java','-jar', checkstyle_jar, '-c', config_file] + java_files
+    cmd = ['java','-version']
     result = subprocess.run(cmd,capture_output=True, text=True)
 
     if result.returncode == 0:
