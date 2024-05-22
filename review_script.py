@@ -38,7 +38,7 @@ def main():
         print(result.stdout)
     else:
         print("Checkstyle violations found:")
-        print(result.stderr)
+        print(result)
         # Analyze code for naming conventions
         #check_naming_conventions(code)
 
