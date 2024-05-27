@@ -26,7 +26,7 @@ jobs:
           # Optional configuration
           LANGUAGE: English
           mode: files
-          MODEL: gpt-3.5
+          MODEL: gpt-3.5-turbo
           PROMPT: "Please review the following code changes:"
           top_p: 1
           temperature: 1
