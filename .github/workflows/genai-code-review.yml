@@ -25,7 +25,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           # Optional configuration
           LANGUAGE: English
-          files: "*.java"
+          mode: "*.java"
           MODEL: gpt-3.5-turbo
           PROMPT: "Please review the following code changes:"
           top_p: 1
