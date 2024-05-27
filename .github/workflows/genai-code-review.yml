@@ -18,6 +18,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11' # Specify the version of Java you are using
+          distribution: 'adopt'
         
       - name: Install dependencies
         run: |
