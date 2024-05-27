@@ -1,25 +1,36 @@
-name: Gen Code Review - Asthethi
+name: OpenAI code review
+
 on:
   pull_request:
-    types: [opened, synchronize]
+    branches:
+      - "*"
+    types: [opened, synchronize, reopened]
   push:
     branches:
       - dev-test
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
-  code_review_job:
+  openai-code-review:
     runs-on: ubuntu-latest
-    name: ChatGPT Code Review
+    name: OpenAI code review
     steps:
-      - name: GenAI Code Review
-        uses: cirolini/genai-code-review@v2
-        with:
-          openai_api_key: ${{ secrets.openai_api_key }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          github_pr_id: ${{ github.event.number }}
-          openai_model: "gpt-3.5-turbo" # optional
-          openai_temperature: 0.5 # optional
-          openai_max_tokens: 2048 # optional
-          mode: files # files or patch
-          language: en # optional, default is 'en'
-          custom_prompt: "" # optional
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAI code review
+        uses: anc95/ChatGPT-CodeReview@v1.0.13
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Optional configuration
+          LANGUAGE: English
+          MODEL: gpt-3.5-turbo
+          PROMPT: "Please review the following code changes:"
+          top_p: 1
+          temperature: 1
+          max_tokens: 10000
+          MAX_PATCH_LENGTH: 10000
