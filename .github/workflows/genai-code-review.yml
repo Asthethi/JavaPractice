@@ -19,13 +19,6 @@ jobs:
         with:
           java-version: '11' # Specify the version of Java you are using
           distribution: 'adopt'
-        
-      - name: Install dependencies
-        run: |
-          # Install any dependencies required for your Java project
-          # For example, you might install Maven or Gradle
-          # Replace the following command with your actual dependency installation command
-          apt-get install maven -y
           
       - name: Run OpenAI Code Review
         uses: cirolini/genai-code-review@v2
