@@ -1,34 +1,37 @@
-name: OpenAI code review
+name: OpenAI Code Review
 
 on:
   pull_request:
     branches:
-      - "*"
-    types: [opened, synchronize, reopened]
-
-permissions:
-  contents: read
-  pull-requests: write
+      - '*'
 
 jobs:
-  openai-code-review:
+  code_review_job:
+    name: OpenAI Code Review
     runs-on: ubuntu-latest
-    name: OpenAI code review
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: OpenAI code review
-        uses: anc95/ChatGPT-CodeReview@v1.0.13
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Optional configuration
-          LANGUAGE: English
-          mode: files
-          MODEL: gpt-3.5-turbo
-          PROMPT: "Please review the following code changes:"
-          top_p: 1
-          temperature: 1
-          #max_tokens: 10000
-          #MAX_PATCH_LENGTH: 10000
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11' # Specify the version of Java you are using
+        
+      - name: Install dependencies
+        run: |
+          # Install any dependencies required for your Java project
+          # For example, you might install Maven or Gradle
+          # Replace the following command with your actual dependency installation command
+          apt-get install maven -y
+          
+      - name: Run OpenAI Code Review
+        uses: cirolini/genai-code-review@v2
+        with:
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_pr_id: ${{ github.event.number }}
+          openai_model: "gpt-3.5-turbo" # Specify the OpenAI model to use
+          mode: files # Review entire files
+          language: java # Specify the language of the code to be reviewed
