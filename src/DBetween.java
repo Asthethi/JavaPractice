@@ -12,7 +12,7 @@ public class DBetween {
         // Calculate the number of days between the two dates
         int daysBetween = calculateDays(startYear, startMonth, startDay, endYear, endMonth, endDay);
         
-        // Print the result
+        // Print the result to console
         System.out.println("Number of days between the two dates: " + daysBetween);
     }
     
