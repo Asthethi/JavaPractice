@@ -17,7 +17,7 @@ public class DBetween {
     }
     
     // Calculate the number of days between two dates
-    public static int calculateDays(int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay) {
+    public static int CalculateDays(int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay) {
         // Days in each month
         int[] daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         
