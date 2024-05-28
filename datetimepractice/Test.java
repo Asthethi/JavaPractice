@@ -1,10 +1,10 @@
 public class Test {
 
-    int Amrit = 1;
-    String StringA = "Test String";
-    String StringB = "Test String";
-    String StringC = "Test String";
-    String StringD = "Test String";
+    int amritValue = 1;
+    String testStringA = "Test String";
+    String testStringB = "Test String";
+    String testStringC = "Test String";
+    String testStringD = "Test String";
 
     public Test() {
     }
