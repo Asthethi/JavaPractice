@@ -153,7 +153,7 @@ def analyze_commit_files(github_client, openai_client, pr_id, commit, language, 
                                                                   custom_prompt))
     github_client.post_comment(pr_id, f"ChatGPT's code review:\n {review}")
 
-    codeRating = openai_client.generate_response("can you rate the above code out of 10 \n" + combined_content)
+    codeRating = openai_client.generate_response("can you rate the above code out of 10, please note that i dont need any area of improvement explaination i just need a single numeric rating out of 10 \n" + combined_content)
     
     github_client.post_comment(pr_id,f"ChatGPT's code review rating :\n {codeRating}")
 
